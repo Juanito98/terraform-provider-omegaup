@@ -1,0 +1,1 @@
+terraform import omegaup_group.test ofmi-2024
