@@ -1,1 +1,1 @@
-terraform import omegaup_group.test ofmi-2024
+terraform import omegaup_group.group alias
