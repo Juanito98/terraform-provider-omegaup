@@ -42,7 +42,7 @@ func (r *GroupMemberResource) Metadata(ctx context.Context, req resource.Metadat
 func (r *GroupMemberResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
 		// This description is used by the documentation generator and the language server.
-		MarkdownDescription: "Example resource",
+		MarkdownDescription: "Creates a new user permission for a group.",
 
 		Attributes: map[string]schema.Attribute{
 			"group_alias": schema.StringAttribute{

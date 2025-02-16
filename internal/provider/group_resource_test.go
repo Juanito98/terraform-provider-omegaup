@@ -90,7 +90,9 @@ func newMockServer() *httptest.Server {
 				if err != nil {
 					http.Error(w, "Marshalling response", http.StatusInternalServerError)
 				}
-				w.Write(res)
+				if _, err = w.Write(res); err != nil {
+					http.Error(w, "Writing response", http.StatusInternalServerError)
+				}
 				w.WriteHeader(http.StatusOK)
 				return
 			} else {
@@ -150,7 +152,9 @@ func newMockServer() *httptest.Server {
 				if err != nil {
 					http.Error(w, "Marshalling response", http.StatusInternalServerError)
 				}
-				w.Write(res)
+				if _, err = w.Write(res); err != nil {
+					http.Error(w, "Writing response", http.StatusInternalServerError)
+				}
 				w.WriteHeader(http.StatusOK)
 				return
 			} else {

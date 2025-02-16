@@ -29,7 +29,7 @@ func NewClient(apiToken string, baseURL string) *Client {
 	return client
 }
 
-// Convert struct to map[string]string
+// Convert struct to map[string]string.
 func structToJson(obj interface{}) (map[string]string, error) {
 	jsonData, err := json.Marshal(obj)
 	var result map[string]string
