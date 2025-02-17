@@ -1,0 +1,1 @@
+terraform import omegaup_identity.identity group_alias,username
