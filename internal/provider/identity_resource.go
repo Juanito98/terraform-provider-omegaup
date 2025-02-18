@@ -205,7 +205,7 @@ func (r *IdentityResource) Read(ctx context.Context, req resource.ReadRequest, r
 		return
 	}
 
-	// Look for the alias withing the group
+	// Look for the alias within the group
 	var apiData *apiclient.GroupIdentity
 	for _, identity := range group.Identities {
 		if identity.Username == data.Username.ValueString() {
