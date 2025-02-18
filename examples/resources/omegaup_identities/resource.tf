@@ -1,4 +1,4 @@
-resource "omegaup_identities" "identity" {
+resource "omegaup_identities" "identities" {
   group_alias = "group"
   identities = [
     {

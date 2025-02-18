@@ -13,7 +13,7 @@ Creates a bulk identities associated to a group. It does not fit well with singl
 ## Example Usage
 
 ```terraform
-resource "omegaup_identities" "identity" {
+resource "omegaup_identities" "identities" {
   group_alias = "group"
   identities = [
     {
