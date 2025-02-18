@@ -82,12 +82,21 @@ type GroupMembersRequest struct {
 	GroupAlias string `json:"group_alias"`
 }
 
-type Identity struct {
-	Username string `json:"username"`
+type GroupIdentity struct {
+	Username  string `json:"username"`
+	Name      string `json:"name"`
+	CountryId string `json:"country_id"`
+	Country   string `json:"country"`
+	StateId   string `json:"state_id"`
+	State     string `json:"state"`
+	Gender    string `json:"gender"`
+	Password  string `json:"password"`
+	SchoolId  int    `json:"school_id"`
+	School    string `json:"school"`
 }
 
 type GroupMembersResponse struct {
-	Identities []Identity `json:"identities"`
+	Identities []GroupIdentity `json:"identities"`
 }
 
 func (c *Client) GroupRemoveUser(req *GroupRemoveUserRequest) error {

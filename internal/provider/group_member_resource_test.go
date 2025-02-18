@@ -5,6 +5,7 @@ package provider
 
 import (
 	"fmt"
+	"terraform-provider-omegaup/internal/mocks"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
@@ -14,7 +15,7 @@ import (
 )
 
 func TestAccGroupMemberResource(t *testing.T) {
-	mockServer := newMockServer()
+	mockServer := mocks.NewMockServer()
 	defer mockServer.Close()
 
 	resource.Test(t, resource.TestCase{

@@ -136,6 +136,8 @@ func (p *OmegaUpProvider) Resources(ctx context.Context) []func() resource.Resou
 	return []func() resource.Resource{
 		NewGroupResource,
 		NewGroupMemberResource,
+		NewIdentityResource,
+		NewIdentitiesResource,
 	}
 }
 
