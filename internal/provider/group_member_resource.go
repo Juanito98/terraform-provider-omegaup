@@ -143,15 +143,16 @@ func (r *GroupMemberResource) Read(ctx context.Context, req resource.ReadRequest
 
 	userExists := false
 	for _, identity := range members.Identities {
-		if identity.Username == data.Username.ValueString() {
+		if apiclient.EqualUsername(identity.Username, data.Username.ValueString()) {
 			userExists = true
+			data.Username = types.StringValue(identity.Username)
 		}
 	}
 
 	// Convert from the API data model to the Terraform data model
 	// and set any unknown attribute values.
 	if !userExists {
-		resp.Diagnostics.Append(resp.State.Set(ctx, nil)...)
+		resp.State.RemoveResource(ctx)
 		return
 	}
 
