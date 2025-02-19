@@ -3,7 +3,10 @@
 
 package apiclient
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"strings"
+)
 
 type Identity struct {
 	GroupAlias string `json:"group_alias"`
@@ -14,6 +17,10 @@ type Identity struct {
 	SchoolName string `json:"school_name"`
 	CountryId  string `json:"country_id"`
 	StateId    string `json:"state_id"`
+}
+
+func EqualUsername(u1 string, u2 string) bool {
+	return strings.EqualFold(u1, u2)
 }
 
 func (c *Client) IdentityCreate(req *IdentityCreateRequest) (*IdentityCreateResponse, error) {
