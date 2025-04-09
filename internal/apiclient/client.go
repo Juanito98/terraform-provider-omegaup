@@ -78,7 +78,12 @@ func (c *Client) query(endpoint string, payload interface{}) ([]byte, error) {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("endpoint: %v, status: %v, error: %v", endpoint, resp.StatusCode, string(result))
+		// err is the error contained in json
+		var errResponse map[string]string
+		if err := json.Unmarshal(result, &errResponse); err != nil && errResponse["error"] != "" {
+			return nil, fmt.Errorf("endpoint: %v, status: %v, error: %s", endpoint, resp.StatusCode, errResponse["error"])
+		}
+		return nil, fmt.Errorf("%v", result)
 	}
 
 	return result, nil
